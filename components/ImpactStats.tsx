@@ -1,12 +1,33 @@
 import React from 'react';
-
-const stats = [
-  { value: '£2000+', label: 'Raised' },
-  { value: '90+', label: 'Tutoring Sessions' },
-  { value: '100%', label: 'Proceeds Donated' },
-];
+import { useStatistics } from '../hooks/useStatistics';
 
 const ImpactStats: React.FC = () => {
+  const { displayStats, loading } = useStatistics();
+
+  // Loading skeleton
+  if (loading) {
+    return (
+      <div className="bg-navy-light py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 text-center">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex flex-col items-center">
+                <div className="h-12 w-32 bg-navy/50 rounded animate-pulse"></div>
+                <div className="mt-2 h-6 w-24 bg-navy/30 rounded animate-pulse"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const stats = [
+    { value: displayStats.raised, label: 'Raised' },
+    { value: displayStats.sessions, label: 'Tutoring Sessions' },
+    { value: '100%', label: 'Proceeds Donated' },
+  ];
+
   return (
     <div className="bg-navy-light py-12 sm:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

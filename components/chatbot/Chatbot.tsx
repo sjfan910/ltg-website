@@ -3,7 +3,8 @@ import { GoogleGenAI, Chat } from '@google/genai';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import ChatIcon from '../../assets/ChatIcon';
-import { SYSTEM_INSTRUCTION } from '../../constants';
+import { generateSystemInstruction } from '../../constants';
+import { useStatistics } from '../../hooks/useStatistics';
 
 interface Message {
   role: 'user' | 'model';
@@ -24,24 +25,26 @@ const Chatbot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [chat, setChat] = useState<Chat | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const { data: statistics } = useStatistics();
 
   const startNewChat = () => {
     if (process.env.API_KEY) {
+      const systemInstruction = generateSystemInstruction(statistics);
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const chatSession = ai.chats.create({
         model: 'gemini-2.5-flash',
         config: {
-          systemInstruction: SYSTEM_INSTRUCTION,
+          systemInstruction,
         },
       });
       setChat(chatSession);
     }
   };
 
-  // Initialize chat on mount
+  // Initialize chat on mount and when statistics update
   useEffect(() => {
     startNewChat();
-  }, []);
+  }, [statistics]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

@@ -43,7 +43,6 @@ export function formatChatbotCurrency(usd: number): string {
  * @returns Parsed number
  */
 export function parseCurrencyString(value: string): number {
-  // Remove currency symbols (฿, $, £, etc.) and thousand separators
   const cleaned = value.replace(/[฿$£€,]/g, '').trim();
   const parsed = parseFloat(cleaned);
   return isNaN(parsed) ? 0 : parsed;

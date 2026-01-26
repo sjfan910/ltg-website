@@ -15,7 +15,6 @@ export interface DisplayStatistics {
   students?: string;       // e.g., "89" (for chatbot)
 }
 
-// Result returned by the useStatistics hook
 export interface StatsFetchResult {
   data: Statistics | null;
   error: string | null;
@@ -23,7 +22,6 @@ export interface StatsFetchResult {
   fromCache: boolean;
 }
 
-// Raw Google Sheets row structure (not used with header row format)
 export interface GoogleSheetsRow {
   key: string;
   value: string;

@@ -6,9 +6,9 @@ const HomePage: React.FC = () => {
     <div className="bg-navy">
       {/* Hero Section */}
       <div className="relative text-center py-24 sm:py-32 md:py-48 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[60vh]">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{backgroundImage: "url('/assets/ltgfrontpage.jpeg')"}}
+          style={{ backgroundImage: "url('/assets/ltgfrontpage.jpeg')" }}
         ></div>
         <div className="relative z-10">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight font-lato">
@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
 
       {/* Impact Stats Section */}
       <ImpactStats />
-      
+
       {/* Testimonials Section */}
       <div className="py-20 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,9 +51,9 @@ const HomePage: React.FC = () => {
             {/* Testimonial Card 1 */}
             <div className="bg-navy-light p-8 rounded-lg shadow-lg">
               <blockquote className="text-gray-300 italic">
-                "The tutoring was fantastic for my son's Chemistry A-Level. Knowing the fee went to such a great cause made it even more worthwhile. Highly recommend LTG!"
+                "The SAT tutoring was clearly structured with weekly goals, and completely changed my mental approach to the exam. Highly recommend LTG!"
               </blockquote>
-              <p className="mt-4 font-bold text-white">- Parent of a GCSE Student</p>
+              <p className="mt-4 font-bold text-white">- SAT Student</p>
             </div>
             {/* Testimonial Card 2 */}
             <div className="bg-navy-light p-8 rounded-lg shadow-lg">

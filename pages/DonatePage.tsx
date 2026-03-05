@@ -9,7 +9,7 @@ const DonatePage: React.FC = () => {
           {/* Image Section */}
           <div className="rounded-lg overflow-hidden shadow-2xl">
             <img
-              src="/assets/donations1.png"
+                            src="/donations1.png"
               alt="Smiling student who received a scholarship"
               className="w-full h-full object-cover"
             />

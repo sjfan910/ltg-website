@@ -49,21 +49,21 @@ const HomePage: React.FC = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Testimonial Card 1 */}
-            <div className="bg-navy-light p-8 rounded-lg shadow-lg">
+            <div className="bg-navy-light p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
               <blockquote className="text-gray-300 italic">
                 "The SAT tutoring was clearly structured with weekly goals, and completely changed my mental approach to the exam. Highly recommend LTG!"
               </blockquote>
               <p className="mt-4 font-bold text-white">- SAT Student</p>
             </div>
             {/* Testimonial Card 2 */}
-            <div className="bg-navy-light p-8 rounded-lg shadow-lg">
+            <div className="bg-navy-light p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
               <blockquote className="text-gray-300 italic">
                 "An amazing initiative! The tutor was knowledgeable and patient. It's wonderful to see young people making such a direct and meaningful impact."
               </blockquote>
               <p className="mt-4 font-bold text-white">- A-Level Student</p>
             </div>
             {/* Testimonial Card 3 */}
-            <div className="bg-navy-light p-8 rounded-lg shadow-lg">
+            <div className="bg-navy-light p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
               <blockquote className="text-gray-300 italic">
                 "LearnToGive is more than just tutoring; it's a lifeline. The support for our children's education is something we are deeply grateful for."
               </blockquote>

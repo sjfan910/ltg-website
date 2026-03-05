@@ -37,7 +37,7 @@ const MeetTheTeamPage: React.FC = () => {
             {/* TeachtoReach Card */}
             <div className="bg-navy-light rounded-xl overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col">
               <div className="flex items-center justify-center p-6">
-                <img src="/assets/teachtoreach.png" alt="TeachtoReach chapter" className="w-48 h-auto object-contain" />
+                <img src="/teachtoreach.png" alt="TeachtoReach chapter" className="w-48 h-auto object-contain" />
               </div>
               <div className="px-6 pb-6 flex-1">
                 <h3 className="text-2xl font-bold text-white mb-2 font-lato">TeachtoReach</h3>
@@ -66,7 +66,7 @@ const MeetTheTeamPage: React.FC = () => {
             {/* Gifted Card */}
             <div className="bg-navy-light rounded-xl overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col">
               <div className="flex items-center justify-center p-6">
-                <img src="/assets/giftedclub.png" alt="Gifted chapter" className="w-40 h-auto object-contain" />
+                <img src="/giftedclub.png" alt="Gifted chapter" className="w-40 h-auto object-contain" />
               </div>
               <div className="px-6 pb-6 flex-1">
                 <h3 className="text-2xl font-bold text-white mb-2 font-lato">Gifted</h3>

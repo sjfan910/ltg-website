@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
       <div className="relative text-center py-24 sm:py-32 md:py-48 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[60vh]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('/assets/ltgfrontpage.jpeg')" }}
+          style={{ backgroundImage: "url('/ltgfrontpage.jpeg')" }}
         ></div>
         <div className="relative z-10">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight font-lato">

@@ -119,7 +119,7 @@ const Chatbot: React.FC = () => {
         <div className="flex-1 p-4 overflow-y-auto">
             {messages.length === 0 && !isLoading ? (
                 <div className="flex flex-col items-center justify-center h-full text-center px-4">
-                    <img src="/assets/LTGlogo.png" alt="LTG Logo" className="w-16 h-16 mb-4 opacity-50"/>
+                    <img src="/LTGlogo.png" alt="LTG Logo" className="w-16 h-16 mb-4 opacity-50"/>
                     <p className="text-accent mb-8 text-sm sm:text-base">Hi, I'm Adam! Ask me about tutoring, our mission, or how to book a session. ✨</p>
                     
                     <div className="w-full space-y-2">

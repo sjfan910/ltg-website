@@ -51,7 +51,7 @@ const HomePage: React.FC = () => {
             {/* Testimonial Card 1 */}
             <div className="bg-navy-light p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
               <blockquote className="text-gray-300 italic">
-                "The SAT tutoring was clearly structured with weekly goals, and completely changed my mental approach to the exam. Highly recommend LTG!"
+                "The SAT tutoring was clearly structured with specific weekly goals, so I always knew what I was working towards. Focused, intentional, and genuinely effective."
               </blockquote>
               <p className="mt-4 font-bold text-white">- SAT Student</p>
             </div>
@@ -65,9 +65,9 @@ const HomePage: React.FC = () => {
             {/* Testimonial Card 3 */}
             <div className="bg-navy-light p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
               <blockquote className="text-gray-300 italic">
-                "LearnToGive is more than just tutoring; it's a lifeline. The support for our children's education is something we are deeply grateful for."
+                "The biggest impact was how my mental approach to the SAT changed. I learned to think strategically, manage pressure, and tackling questions in the SAT's style."
               </blockquote>
-              <p className="mt-4 font-bold text-white">- Community Partner in Thailand</p>
+              <p className="mt-4 font-bold text-white">- SAT Student</p>
             </div>
           </div>
         </div>

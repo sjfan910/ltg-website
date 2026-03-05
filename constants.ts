@@ -168,12 +168,17 @@ LearnToGive is expanding through student-led chapters in Thailand:
 - **Thailand Focus:** Our founder Xander grew up in one of the most rural and underdeveloped regions of Thailand, where many children attend school without proper uniforms, shoes, or basic stationery. He has personal connections with schools in Mae Hong Son and Sakon Nakhorn provinces - two of the lowest income areas in the country. Scholarships are delivered in person to ensure every penny reaches students.
 - **Why Thailand:** Purchasing power parity means small contributions have massive impact - school shoes cost under £5, basic stationery even less.
 
+**Student Testimonials**
+- "From the very start, the SAT tutoring was clearly structured and tailored to exactly what I needed. My tutor identified my weak areas quickly and gave me targeted practice that actually made a difference." — SAT Student
+- "The biggest impact was how my mental approach to the SAT changed. My tutor taught me strategies for time management and staying calm under pressure that I still use today." — SAT Student
+
 **Key Responses & Actions**
 - **For booking inquiries:** Direct users to our booking form: https://forms.gle/HRe9v8bobjAw63bL6
+- **For donation inquiries:** Direct users to our Donate page (/donate) or JustGiving: https://www.justgiving.com/crowdfunding/learn-to-give
 - **For complex questions or support:** Suggest contacting learntogiveedu@gmail.com - we respond within 24 hours.
 - **Subject-specific tutor matching:** Match students with appropriate team members based on their subject needs.
 - **For tutor registration:** Direct users to our registration page: /join
-- **For chapter inquiries:** Direct users to visit the About page (/about) to learn more about our chapters, or mention the relevant chapter's Instagram.
+- **For chapter inquiries:** Direct users to visit the About page (/about) or Meet the Team page (/team) to learn more about our chapters, or mention the relevant chapter's Instagram.
 
 **Contact Information**
 - **Email:** learntogiveedu@gmail.com

@@ -6,7 +6,7 @@ const AboutPage: React.FC = () => {
   return (
     <div className="bg-navy py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Mission Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight font-lato">Our Mission</h1>
@@ -20,7 +20,7 @@ const AboutPage: React.FC = () => {
           <div>
             <h2 className="text-3xl font-bold text-white mb-4 font-lato">Our Story & Impact</h2>
             <p className="text-gray-300 mb-4 text-lg">
-              LearnToGive was founded in 2023 by a group of passionate high school students who believed education could be a powerful force for change. We saw a dual need: accessible academic support for students globally and critical funding for children in rural Thailand at risk of dropping out of school due to poverty.
+              LearnToGive was founded in 2023 with the goal of using peer-to-peer tutoring as a powerful force for change. We saw a triple need: opportunities for deeper subject engagement, accessible academic support for students globally, and critical funding for underprivileged children in rural Thailand.
             </p>
             <h2 className="text-3xl font-bold text-white mb-4 font-lato">Why Thailand?</h2>
             <p className="text-gray-300 text-lg mb-4">
@@ -31,7 +31,7 @@ const AboutPage: React.FC = () => {
             </p>
           </div>
           <div className="rounded-lg overflow-hidden shadow-2xl">
-            <img src="/donations.png" alt="Donations making an impact for students in Thailand" className="w-full h-full object-cover"/>
+            <img src="/donations.png" alt="Donations making an impact for students in Thailand" className="w-full h-full object-cover" />
           </div>
         </div>
 
@@ -107,7 +107,7 @@ const AboutPage: React.FC = () => {
 
         {/* Impact Stats */}
         <ImpactStats />
-        
+
         {/* Transparency Section */}
         <div className="text-center mt-20">
           <h2 className="text-3xl font-bold text-white mb-4 font-lato">Our Commitment to Transparency</h2>
@@ -123,7 +123,7 @@ const AboutPage: React.FC = () => {
             View Donation Report
           </a>
         </div>
-        
+
       </div>
     </div>
   );

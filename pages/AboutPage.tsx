@@ -27,7 +27,7 @@ const AboutPage: React.FC = () => {
               Our founder, Xander, grew up living alongside the stark inequality that pervades Thai society. In the Northeast regions, families struggle to afford compulsory uniforms and stationaries. Children attend school without proper uniforms, shoes, or basic stationery. In Thailand, a sturdy pair of school shoes can cost under £5, and essential stationery is even less.
             </p>
             <p className="text-gray-300 text-lg">
-              This is where purchasing power parity comes in. What may seem like a small contribution in the UK can provide a child in rural Thailand with the essentials they need to stay in school, continue learning, and pursue a brighter future.
+              What may seem like a small contribution in the UK can provide a child in rural Thailand with the essentials they need to stay in school, continue learning, and pursue a brighter future.
             </p>
           </div>
           <div className="rounded-lg overflow-hidden shadow-2xl">

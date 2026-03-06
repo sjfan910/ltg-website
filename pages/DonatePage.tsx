@@ -9,7 +9,7 @@ const DonatePage: React.FC = () => {
           {/* Image Section */}
           <div className="rounded-lg overflow-hidden shadow-2xl">
             <img
-                            src="/donations1.png"
+              src="/donations1.png"
               alt="Smiling student who received a scholarship"
               className="w-full h-full object-cover"
             />
@@ -21,14 +21,13 @@ const DonatePage: React.FC = () => {
               Your Donation Creates Opportunity
             </h1>
             <p className="mt-6 text-xl text-gray-300">
-              Every donation, no matter the size, has a profound impact. Your contribution directly funds the essentials that keep a child in school—covering fees, providing a uniform they can wear with pride, and supplying the books and stationery they need to learn and grow.
+              Every donation, no matter the size, has a profound impact. Your contribution directly funds the essentials that keep a child in school — covering fees, providing a uniform they can wear with pride, and supplying the books and stationery they need to learn and grow.
             </p>
             <p className="mt-4 text-xl text-gray-300">
               You are not just giving money; you are giving a future.
             </p>
 
             <div className="mt-10">
-              {/* Replace with your GoFundMe/PayPal link */}
               <a
                 href="https://www.justgiving.com/crowdfunding/learn-to-give"
                 target="_blank"

@@ -53,21 +53,21 @@ const HomePage: React.FC = () => {
               <blockquote className="text-gray-300 italic">
                 "The SAT tutoring was clearly structured with specific weekly goals, so I always knew what I was working towards. Focused, intentional, and genuinely effective."
               </blockquote>
-              <p className="mt-4 font-bold text-white">- SAT Student</p>
+
             </div>
             {/* Testimonial Card 2 */}
             <div className="bg-navy-light p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
               <blockquote className="text-gray-300 italic">
-                "An amazing initiative! The tutor was knowledgeable and patient. It's wonderful to see young people making such a direct and meaningful impact."
+                "LTG's tutors have personal experience in high achievement, which filled me with confidence before my exams. Knowing my learning makes a difference in the world makes the experience so much better."
               </blockquote>
-              <p className="mt-4 font-bold text-white">- A-Level Student</p>
+
             </div>
             {/* Testimonial Card 3 */}
             <div className="bg-navy-light p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
               <blockquote className="text-gray-300 italic">
-                "The biggest impact was how my mental approach to the SAT changed. I learned to think strategically, manage pressure, and tackling questions in the SAT's style."
+                "The biggest impact was how my mental approach to the SAT changed. I learned to think strategically, manage pressure, and tackle questions in the SAT's style."
               </blockquote>
-              <p className="mt-4 font-bold text-white">- SAT Student</p>
+
             </div>
           </div>
         </div>

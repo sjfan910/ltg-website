@@ -26,9 +26,9 @@ The website exists to give LearnToGive a professional, credible online presence 
 
 ## Pages & Structure
 
-- **Home** (`/`): Hero section, impact stats, testimonials, call-to-action buttons.
-- **About** (`/about`): Mission, founding story, why Thailand, live impact stats, and chapters section.
-- **Meet the Team** (`/team`): Team member cards with photos, titles, and bios.
+- **Home** (`/`): Hero section, impact stats, student testimonials (with hover effects), call-to-action buttons.
+- **About** (`/about`): Mission, founding story, why Thailand, chapters section (with images and hover effects), live impact stats, and transparency/donation report link.
+- **Meet the Team** (`/team`): Team member cards with photos, titles, and bios. Also features the "Our Chapters" section.
 - **Book a Lesson** (`/book`): Subject list, pricing, how-it-works steps, booking form link.
 - **Become a Tutor** (`/join`): Why join, what we look for, application form link.
 - **Donate** (`/donate`): Impact framing, JustGiving link, transparency promise.
@@ -36,7 +36,7 @@ The website exists to give LearnToGive a professional, credible online presence 
 ## Key Technical Features
 
 - **Live Statistics**: Fetched from a published Google Sheets CSV. 5-minute localStorage cache with multi-level fallback (fresh fetch → cached → stale cache → hardcoded defaults). Displayed in dual currency (USD + THB).
-- **AI Chatbot "Adam"**: Gemini-powered assistant with a detailed system prompt containing live stats, chapter info, team expertise, and response guidelines. Streams responses with markdown rendering. Has suggested starter questions.
+- **AI Chatbot "Adam"**: Gemini 2.5 Flash-powered assistant with a detailed system prompt containing live stats, chapter info, team expertise, student testimonials, and response guidelines. Requests are proxied through a Vercel serverless function (`/api/chat`) to keep the API key server-side. Has suggested starter questions and markdown rendering.
 - **Responsive Design**: Mobile-first with sticky header, hamburger menu, and Tailwind breakpoints.
 
 ## The Team
@@ -72,7 +72,7 @@ The website exists to give LearnToGive a professional, credible online presence 
 
 - Google Forms (booking + tutor registration)
 - Google Sheets CSV (live statistics)
-- Google Gemini API (chatbot)
+- Google Gemini API via Vercel serverless proxy (chatbot)
 - JustGiving (donations)
 
 ## Development
@@ -84,6 +84,6 @@ npm install
 npm run dev
 ```
 
-**Environment variables** (`.env.local`):
-- `GEMINI_API_KEY` — For the AI chatbot
-- `VITE_SHEETS_CSV_URL` — For live statistics from Google Sheets
+**Environment variables:**
+- `GEMINI_API_KEY` — For the AI chatbot (set in Vercel environment, server-side only)
+- `VITE_SHEETS_CSV_URL` — For live statistics from Google Sheets (client-side, in `.env.local`)

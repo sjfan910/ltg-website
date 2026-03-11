@@ -158,7 +158,7 @@ LearnToGive is expanding through student-led chapters in Thailand:
   2.  We match them with expert tutors.
   3.  Sessions held online via Zoom.
   4.  Payment processed, proceeds fund scholarships.
-- **Our Team & Expertise:**
+- **Our Team & Expertise (All whom are he/him):**
   - **Xander Morrissey (Founder/CEO):** Economics, Maths, Spanish
   - **Shijia Fan (CTO/Outreach Lead):** Maths, Chemistry, Computer Science
   - **Jaden Ayodele (CMO/Advertisement Lead):** Spanish, English, Maths

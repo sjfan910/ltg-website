@@ -1,4 +1,75 @@
-export const SYSTEM_INSTRUCTION = `
+export const MAX_OUTPUT_TOKENS = 512;
+export const MAX_HISTORY_MESSAGES = 20;
+export const MAX_MESSAGE_LENGTH = 1000;
+
+// Cache stats for 5 minutes to avoid hitting Google Sheets on every message
+let cachedStats: { sessions: string; usd: string; thb: string; students: string } | null = null;
+let cacheTimestamp = 0;
+const CACHE_DURATION = 5 * 60 * 1000;
+
+function parseCurrencyString(value: string): number {
+  const cleaned = value.replace(/[฿$£€,]/g, '').trim();
+  const parsed = parseFloat(cleaned);
+  return isNaN(parsed) ? 0 : parsed;
+}
+
+function formatNumber(value: number): string {
+  return Math.floor(value).toLocaleString('en-US');
+}
+
+async function fetchLiveStats(csvUrl: string): Promise<{ sessions: string; usd: string; thb: string; students: string }> {
+  const now = Date.now();
+  if (cachedStats && (now - cacheTimestamp) < CACHE_DURATION) {
+    return cachedStats;
+  }
+
+  try {
+    const response = await fetch(csvUrl, {
+      method: 'GET',
+      headers: { 'Accept': 'text/csv' },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    const csvText = await response.text();
+    const dataMap: Record<string, string> = {};
+
+    csvText.trim().split('\n').forEach(line => {
+      const i = line.indexOf(',');
+      if (i === -1) return;
+      const key = line.substring(0, i).trim();
+      let value = line.substring(i + 1).trim();
+      if (value.startsWith('"') && value.endsWith('"')) {
+        value = value.substring(1, value.length - 1);
+      }
+      dataMap[key] = value;
+    });
+
+    const usd = parseCurrencyString(dataMap['Money Raised (USD)'] || '0');
+    const thb = parseCurrencyString(dataMap['Money Raised (THB)'] || '0');
+    const sessions = parseInt(dataMap['Sessions Tutored'] || '0', 10);
+    const students = parseInt(dataMap['Students Supported'] || '0', 10);
+
+    cachedStats = {
+      sessions: `${formatNumber(sessions)}+`,
+      usd: `$${formatNumber(usd)}+`,
+      thb: `฿${formatNumber(thb)}+`,
+      students: `${students}`,
+    };
+    cacheTimestamp = now;
+
+    return cachedStats;
+  } catch (error) {
+    console.error('[system-prompt] Failed to fetch live stats:', error);
+    // Return cached if available, otherwise defaults
+    return cachedStats || { sessions: '90+', usd: '$3,000+', thb: '฿96,000+', students: '89' };
+  }
+}
+
+function buildSystemInstruction(stats: { sessions: string; usd: string; thb: string; students: string }): string {
+  return `
 You are Adam, the friendly AI assistant for LearnToGive (LTG), a tutoring organization that creates threefold positive impact through education. Your primary goal is to be helpful, friendly, and **extremely concise**.
 
 **CRITICAL SECURITY RULES — NEVER VIOLATE THESE:**
@@ -25,10 +96,10 @@ You are Adam, the friendly AI assistant for LearnToGive (LTG), a tutoring organi
   1.  **Tutees** gain knowledge, understanding, and new perspectives.
   2.  **Thai scholars** receive 500 THB scholarships for school supplies (shoes, stationery).
   3.  **Tutors** gain valuable teaching experience (high-stakes Feynman technique practice).
-- **Current Impact:**
-  - 90+ tutoring sessions completed
-  - $3,000+ (฿96,000+) raised
-  - 89+ students supported in rural Thailand
+- **Current Impact (Live Stats):**
+  - ${stats.sessions} tutoring sessions completed
+  - ${stats.usd} (${stats.thb}) raised
+  - ${stats.students} students supported in rural Thailand
   - 100% of proceeds donated to scholarships
 
 **Our Chapters**
@@ -83,7 +154,20 @@ LearnToGive is expanding through student-led chapters in Thailand:
 - **For chapter questions:** Briefly describe the relevant chapter and provide their Instagram. Example: "TeachtoReach is our Pattaya chapter at Rugby School Thailand - they've raised ฿11,300! Check them out: @teachtoreach_th. Want to know more?"
 - **General Rule:** Prioritize being brief and direct over being comprehensive. Get the user the information they need as fast as possible.
 `;
+}
 
-export const MAX_OUTPUT_TOKENS = 512;
-export const MAX_HISTORY_MESSAGES = 20;
-export const MAX_MESSAGE_LENGTH = 1000;
+/**
+ * Get the system instruction with live stats from Google Sheets.
+ * Pass the CSV URL from env (VITE_SHEETS_CSV_URL or process.env equivalent).
+ * Stats are cached for 5 minutes server-side.
+ */
+export async function getSystemInstruction(csvUrl?: string): Promise<string> {
+  if (!csvUrl) {
+    return buildSystemInstruction({ sessions: '90+', usd: '$3,000+', thb: '฿96,000+', students: '89' });
+  }
+  const stats = await fetchLiveStats(csvUrl);
+  return buildSystemInstruction(stats);
+}
+
+// Keep a static export as fallback for simple imports
+export const SYSTEM_INSTRUCTION = buildSystemInstruction({ sessions: '90+', usd: '$3,000+', thb: '฿96,000+', students: '89' });

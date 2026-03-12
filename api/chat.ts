@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { SYSTEM_INSTRUCTION, MAX_OUTPUT_TOKENS, MAX_HISTORY_MESSAGES, MAX_MESSAGE_LENGTH } from './system-prompt';
+import { getSystemInstruction, MAX_OUTPUT_TOKENS, MAX_HISTORY_MESSAGES, MAX_MESSAGE_LENGTH } from './system-prompt';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
@@ -29,6 +29,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     : [];
 
   try {
+    const systemInstruction = await getSystemInstruction(process.env.VITE_SHEETS_CSV_URL);
+
     const contents = [
       ...safeHistory,
       { role: 'user', parts: [{ text: sanitizedMessage }] },
@@ -40,7 +42,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          system_instruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+          system_instruction: { parts: [{ text: systemInstruction }] },
           contents,
           generationConfig: {
             maxOutputTokens: MAX_OUTPUT_TOKENS,

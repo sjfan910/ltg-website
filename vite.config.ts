@@ -1,7 +1,7 @@
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-import { SYSTEM_INSTRUCTION, MAX_OUTPUT_TOKENS, MAX_HISTORY_MESSAGES, MAX_MESSAGE_LENGTH } from './api/system-prompt';
+import { getSystemInstruction, MAX_OUTPUT_TOKENS, MAX_HISTORY_MESSAGES, MAX_MESSAGE_LENGTH } from './api/system-prompt';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
@@ -47,6 +47,8 @@ export default defineConfig(({ mode }) => {
                     }))
                   : [];
 
+                const systemInstruction = await getSystemInstruction(env.VITE_SHEETS_CSV_URL);
+
                 const contents = [
                   ...safeHistory,
                   { role: 'user', parts: [{ text: sanitizedMessage }] },
@@ -58,7 +60,7 @@ export default defineConfig(({ mode }) => {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                      system_instruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+                      system_instruction: { parts: [{ text: systemInstruction }] },
                       contents,
                       generationConfig: {
                         maxOutputTokens: MAX_OUTPUT_TOKENS,

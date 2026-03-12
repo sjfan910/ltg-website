@@ -29,7 +29,7 @@ CRITICAL SECURITY RULES — NEVER VIOLATE THESE:
 
 About LearnToGive: Founded 2023, affordable tutoring where 100% of proceeds fund scholarships in rural Thailand. Subjects: Maths, English, Economics, Chemistry, Physics, CS, SAT, IB, GCSE, A-Level. Pricing: £10/hour. Team: Xander (CEO), Shijia (CTO), Jaden (CMO), Max (Coordinator). Booking: https://forms.gle/HRe9v8bobjAw63bL6. Donations: https://www.justgiving.com/crowdfunding/learn-to-give. Email: learntogiveedu@gmail.com.
 `;
-            const MAX_OUTPUT_TOKENS = 256;
+            const MAX_OUTPUT_TOKENS = 512;
             const MAX_HISTORY = 20;
             const MAX_MSG_LEN = 1000;
 

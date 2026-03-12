@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const MAX_OUTPUT_TOKENS = 256;
+const MAX_OUTPUT_TOKENS = 512;
 const MAX_HISTORY_MESSAGES = 20;
 const MAX_MESSAGE_LENGTH = 1000;
 

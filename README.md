@@ -62,7 +62,7 @@ The website exists to give LearnToGive a professional, credible online presence 
 
 ## Contact
 
-- **Email:** learntogiveedu@gmail.com
+- **Email:** help@learntogive.net
 - **Instagram:** [@learntogive_](https://instagram.com/learntogive_)
 - **TikTok:** [@learntogive_](https://tiktok.com/@learntogive_)
 - **YouTube:** [@LearnToGiveOfficial](https://youtube.com/@LearnToGiveOfficial)

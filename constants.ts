@@ -12,7 +12,7 @@ export const NAV_LINKS = [
 
 export const TEAM_MEMBERS = [
   {
-    name: 'Xander Morrisey',
+    name: 'Xander Morrissey',
     title: 'Founder & CEO',
     bio: 'Xander founded LTG with a vision to connect students through education and create tangible impact. He oversees all operations and strategic direction.',
     imageUrl: '/xm.png',

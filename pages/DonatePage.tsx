@@ -1,59 +1,65 @@
 import React from 'react';
+import ScrollReveal from '../components/ScrollReveal';
 
 const DonatePage: React.FC = () => {
   return (
-    <div className="bg-navy py-16 sm:py-24">
+    <div className="bg-navy py-16 sm:py-24 relative overflow-hidden">
+      <div className="morphing-blob w-[400px] h-[400px] -bottom-32 -right-40 opacity-15" style={{ animationDelay: '-6s' }} />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* Image Section */}
-          <div className="rounded-lg overflow-hidden shadow-2xl">
-            <img
-              src="/donations1.png"
-              alt="Smiling student who received a scholarship"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <ScrollReveal variant="slide-right">
+            <div className="rounded-lg overflow-hidden shadow-2xl">
+              <img
+                src="/donations1.png"
+                alt="Smiling student who received a scholarship"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </ScrollReveal>
 
           {/* Content Section */}
-          <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight font-lato">
-              Your Donation Creates Opportunity
-            </h1>
-            <p className="mt-6 text-xl text-gray-300">
-              Every donation, no matter the size, has a profound impact. Your contribution directly funds the essentials that keep a child in school — covering fees, providing a uniform they can wear with pride, and supplying the books and stationery they need to learn and grow.
-            </p>
-            <p className="mt-4 text-xl text-gray-300">
-              You are not just giving money; you are giving a future.
-            </p>
-
-            <div className="mt-10">
-              <a
-                href="https://www.justgiving.com/crowdfunding/learn-to-give"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block w-full lg:w-auto bg-accent text-navy font-bold py-4 px-12 rounded-full hover:bg-white transition-colors duration-300 text-xl shadow-lg"
-              >
-                Donate Securely Now
-              </a>
-            </div>
-
-            <div className="mt-12 pt-8 border-t border-gray-700">
-              <h2 className="text-2xl font-bold text-white mb-3 font-lato">Our Promise of Transparency</h2>
-              <p className="text-gray-300 mb-4">
-                We are committed to showing you exactly how your generosity is put to work. Our public donation report details every contribution and how it's used to support students.
+          <ScrollReveal variant="slide-left">
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight font-lato">
+                Your Donation Creates Opportunity
+              </h1>
+              <p className="mt-6 text-xl text-gray-300">
+                Every donation, no matter the size, has a profound impact. Your contribution directly funds the essentials that keep a child in school — covering fees, providing a uniform they can wear with pride, and supplying the books and stationery they need to learn and grow.
               </p>
-              <a
-                href="https://www.justgiving.com/crowdfunding/learn-to-give"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-accent hover:text-white transition-colors"
-              >
-                View our Transparency Report &rarr;
-              </a>
-            </div>
+              <p className="mt-4 text-xl text-gray-300">
+                You are not just giving money; you are giving a future.
+              </p>
 
-          </div>
+              <div className="mt-10">
+                <a
+                  href="https://www.justgiving.com/crowdfunding/learn-to-give"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block w-full lg:w-auto bg-accent text-navy font-bold py-4 px-12 rounded-full hover:bg-gold transition-colors duration-300 text-xl shadow-lg cta-glow ripple-container"
+                >
+                  Donate Securely Now
+                </a>
+              </div>
+
+              <div className="mt-12 pt-8 border-t border-gray-700">
+                <h2 className="text-2xl font-bold text-white mb-3 font-lato">Our Promise of Transparency</h2>
+                <p className="text-gray-300 mb-4">
+                  We are committed to showing you exactly how your generosity is put to work. Our public donation report details every contribution and how it's used to support students.
+                </p>
+                <a
+                  href="https://www.justgiving.com/crowdfunding/learn-to-give"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-accent hover:text-white transition-colors link-hover-underline"
+                >
+                  View our Transparency Report &rarr;
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </div>

@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef, FormEvent } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import ChatIcon from '../../assets/ChatIcon';
-import { generateSystemInstruction } from '../../constants';
-import { useStatistics } from '../../hooks/useStatistics';
 
 interface Message {
   role: 'user' | 'model';
@@ -22,13 +20,8 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [systemInstruction, setSystemInstruction] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { data: statistics } = useStatistics();
-
-  useEffect(() => {
-    setSystemInstruction(generateSystemInstruction(statistics));
-  }, [statistics]);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -41,6 +34,7 @@ const Chatbot: React.FC = () => {
     const updatedMessages = [...messages, userMessage];
     setMessages(updatedMessages);
     setInputValue('');
+    if (textareaRef.current) textareaRef.current.style.height = '44px';
     setIsLoading(true);
 
     try {
@@ -48,7 +42,7 @@ const Chatbot: React.FC = () => {
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, history, systemInstruction }),
+        body: JSON.stringify({ message: text, history }),
       });
 
       if (!response.ok) throw new Error(`API error: ${response.status}`);
@@ -146,17 +140,30 @@ const Chatbot: React.FC = () => {
           )}
         </div>
         <form onSubmit={handleFormSubmit} className="p-4 border-t border-navy bg-navy-light/50 rounded-b-2xl">
-          <div className="flex items-center bg-navy rounded-full shadow-inner border border-navy-light/30">
-            <input
-              type="text"
+          <div className="flex items-end bg-navy rounded-2xl shadow-inner border border-navy-light/30">
+            <textarea
+              ref={textareaRef}
               value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              onChange={(e) => {
+                setInputValue(e.target.value);
+                // Auto-resize
+                e.target.style.height = 'auto';
+                e.target.style.height = Math.min(e.target.scrollHeight, 120) + 'px';
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  handleFormSubmit(e);
+                }
+              }}
               placeholder="Ask a question..."
-              className="flex-1 w-full bg-transparent text-white px-5 py-3 rounded-full focus:outline-none placeholder-gray-400 text-sm"
+              className="flex-1 w-full bg-transparent text-white px-5 py-3 rounded-2xl focus:outline-none placeholder-gray-400 text-sm resize-none overflow-y-auto"
+              style={{ height: '44px', maxHeight: '120px' }}
               aria-label="Chat input"
               disabled={isLoading}
+              rows={1}
             />
-            <button type="submit" disabled={isLoading || !inputValue.trim()} className="p-2 mr-2 text-accent rounded-full hover:text-white hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors" aria-label="Send message">
+            <button type="submit" disabled={isLoading || !inputValue.trim()} className="p-2 mr-2 mb-1 text-accent rounded-full hover:text-white hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0" aria-label="Send message">
               <svg className="w-6 h-6 transform rotate-90" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
             </button>
           </div>

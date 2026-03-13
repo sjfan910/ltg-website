@@ -105,7 +105,7 @@ const HomePage: React.FC = () => {
         <div className="morphing-blob w-[400px] h-[400px] -bottom-20 -right-20 opacity-20" style={{ animationDelay: '-7s' }} />
 
         <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight font-lato hero-text-reveal">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight font-lato hero-text-reveal pb-2">
             Tutoring that <span className="text-accent">changes lives.</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 hero-subtitle-reveal">

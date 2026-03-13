@@ -8,7 +8,29 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           <div className="flex items-center">
             <LTGLogo className="h-8 w-auto mr-3" />
-            <span className="text-lg font-semibold text-white">LearnToGive</span>
+            <div className="relative inline-block">
+              <span
+                className="
+                  pointer-events-none absolute inset-x-0 -inset-y-1
+                  bg-gradient-to-r from-[#1E3A56]/0 via-[#C5D2DC]/40 to-[#1E3A56]/0
+                  blur-2xl opacity-80
+                "
+              >
+                &nbsp;
+              </span>
+              <span
+                className="
+                  relative text-lg md:text-xl font-semibold italic
+                  bg-gradient-to-r from-[#C5D2DC] via-white to-[#C5D2DC]
+                  bg-clip-text text-transparent
+                  drop-shadow-[0_0_12px_rgba(0,0,0,0.6)]
+                "
+              >
+                LearnToGive
+              </span>
+            </div>
+
+
           </div>
           <div className="flex space-x-6">
             <a href="https://www.tiktok.com/@learntogive_?_t=8qpzuSU9tB2&_r=1" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="TikTok">

@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getSystemInstruction, MAX_OUTPUT_TOKENS, MAX_HISTORY_MESSAGES, MAX_MESSAGE_LENGTH } from './system-prompt';
+import { getSystemInstruction, MAX_OUTPUT_TOKENS, MAX_HISTORY_MESSAGES, MAX_MESSAGE_LENGTH } from './system-prompt.js';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {

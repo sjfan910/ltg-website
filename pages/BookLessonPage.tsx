@@ -46,7 +46,7 @@ const BookLessonPage: React.FC = () => {
               <div className="bg-navy-light p-8 rounded-lg shadow-xl border-l-4 border-accent stat-card">
                 <h2 className="text-2xl font-bold text-white mb-2 font-lato">Simple Pricing</h2>
                 <div className="flex items-baseline">
-                  <span className="text-5xl font-extrabold text-white">£10</span>
+                  <span className="text-5xl font-extrabold text-white">£12</span>
                   <span className="text-xl text-accent ml-2">/ hour</span>
                 </div>
                 <p className="mt-4 text-gray-300">
